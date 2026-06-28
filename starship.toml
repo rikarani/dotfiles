@@ -1,0 +1,98 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+format = """
+$time\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+right_format = """
+$bun\
+$cmd_duration\
+"""
+
+# Left Prompt Configuration
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%R"
+utc_time_offset = "local"
+style = "italic dimmed white"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "bright-yellow bold italic"
+style_root = "purple bold italic"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname]($style) "
+style = "bright-yellow bold italic"
+
+[directory]
+home_symbol = "~"
+truncation_length = 0
+truncate_to_repo = false
+read_only = " ◈"
+use_os_path_sep = true
+style = "italic blue"
+format = 'in [$path]($style)[$read_only]($read_only_style) '
+repo_root_style = 'bold blue'
+repo_root_format = 'in  [$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)'
+
+[git_branch]
+format = " [$symbol $branch(:$remote_branch)]($style) "
+symbol = "[](bold italic bright-blue)"
+style = "italic bright-blue"
+truncation_symbol = "⋯"
+truncation_length = 11
+only_attached = true
+
+[git_status]
+style = "bold italic bright-blue"
+format = "([$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed]($style))"
+ahead      = "[ $count ](italic green)"
+behind     = "[ $count ](italic red)"
+diverged   = "[ $ahead_count/$behind_count ](italic bright-magenta)"
+modified   = "[ $count ](italic yellow)"
+staged     = "[ $count ](italic bright-cyan)"
+untracked  = "[ $count ](italic bright-yellow)"
+deleted    = "[ $count ](italic red)"
+renamed    = "[ $count ](italic bright-blue)"
+conflicted = "[ ](italic bright-magenta)"
+stashed    = "[ ](italic white)"
+
+[character]
+format = "$symbol "
+success_symbol = "[>](bold italic bright-yellow)"
+error_symbol = "[X](italic purple)"
+
+# Right Prompt Configuration
+[bun]
+format = "[via $symbol($version )]($style)"
+symbol = " "
+version_format = "v${raw}"
+style = "bold italic bright-yellow"
+
+[nodejs]
+format = "[via $symbol($version )]($style)"
+symbol = "󰎙 "
+version_format = "v${raw}"
+style = "bold italic bright-yellow"
+
+[php]
+format = "[via $symbol($version )]($style)"
+symbol = " "
+version_format = "v${raw}"
+style = "bold italic bright-yellow"
+
+[cmd_duration]
+min_time = 0
+format = "[◄ $duration ](italic white)"
