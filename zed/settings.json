@@ -2,11 +2,7 @@
 {
   // Appearance
   "cli_default_open_behavior": "new_window",
-  "agent_servers": {
-    "claude-acp": {
-      "type": "registry",
-    },
-  },
+  "agent_servers": {},
   "proxy": "",
   "project_panel": {
     "dock": "left",
@@ -20,13 +16,9 @@
   "git_panel": {
     "dock": "left",
   },
-
   // Editor
   "preferred_line_length": 120,
   "buffer_font_family": "Hack Nerd Font",
-  "formatter": "prettier",
-  "tab_size": 2,
-  "hard_tabs": false,
   "icon_theme": "Catppuccin Mocha",
   "ui_font_size": 20.0,
   "buffer_font_size": 20,
@@ -49,7 +41,7 @@
         "provider": "zed.dev",
         "model": "claude-sonnet-4-6",
         "enable_thinking": true,
-        "effort": "high",
+        "effort": "max",
       },
       {
         "provider": "google",
@@ -61,7 +53,7 @@
         "provider": "google",
         "model": "gemini-3.1-flash-lite",
         "enable_thinking": true,
-        "effort": "minimal",
+        "effort": "high",
       },
       {
         "provider": "google",
@@ -81,8 +73,9 @@
       },
     ],
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gemini-2.5-pro",
+      "effort": "max",
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
       "enable_thinking": true,
     },
     "commit_message_model": {
@@ -90,22 +83,37 @@
       "model": "gemini-3.5-flash",
     },
   },
-
-  // Individual Language
+  // Individual Languages
   "languages": {
+    "CSS": {
+      "language_servers": ["tailwindcss-intellisense-css", "!vscode-css-language-server", "..."],
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "formatter": "prettier",
+      "tab_size": 2,
+      "hard_tabs": false,
+    },
+    "JSONC": {
+      "formatter": "prettier",
+      "format_on_save": "on",
+      "tab_size": 2,
+      "hard_tabs": false,
+    },
     "Prisma": {
       "format_on_save": "on",
       "formatter": "language_server",
       "language_servers": ["prisma-language-server"],
     },
     "TypeScript": {
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": "prettier",
+      "format_on_save": "on",
     },
     "TSX": {
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": "prettier",
+      "format_on_save": "on",
     },
   },
-
   // LSP Configuration
   "lsp": {
     "biome": {
@@ -182,7 +190,6 @@
       },
     },
   },
-
   // MCP
   "context_servers": {
     "heroui_react": {
