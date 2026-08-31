@@ -187,9 +187,9 @@
       "background": {
         "blur": true,
         "enabled": false,
-        "opacity": 0.7
+        "opacity": 0.2
       },
-      "enabled": false,
+      "enabled": true,
       "invertColors": false,
       "position": "bottom-right",
       "scale": 1,
@@ -272,16 +272,36 @@
       "workspaces": true
     },
     "showOnHover": true,
-    "status": {
-      "showAudio": false,
-      "showBattery": true,
-      "showBluetooth": false,
-      "showKbLayout": false,
-      "showLockStatus": true,
-      "showMicrophone": false,
-      "showNetwork": true,
-      "showWifi": true
-    },
+    "statusIcons": [
+      {
+        "enabled": true,
+        "id": "lockStatus"
+      },
+      {
+        "enabled": false,
+        "id": "audio"
+      },
+      {
+        "enabled": false,
+        "id": "microphone"
+      },
+      {
+        "enabled": false,
+        "id": "kbLayout"
+      },
+      {
+        "enabled": true,
+        "id": "network"
+      },
+      {
+        "enabled": true,
+        "id": "bluetooth"
+      },
+      {
+        "enabled": true,
+        "id": "battery"
+      }
+    ],
     "tray": {
       "background": false,
       "compact": false,
@@ -293,7 +313,9 @@
       "activeIndicator": true,
       "activeLabel": "󰮯",
       "activeTrail": false,
-      "capitalisation": "preserve",
+      "capitalisation": "Preserve",
+      "displayType": "Shapes",
+      "ignoredTags": ["hide_in_bar", "xwl_popup"],
       "label": "  ",
       "maxWindowIcons": 5,
       "occupiedBg": false,
@@ -328,7 +350,7 @@
     "performance": {
       "showBattery": true,
       "showCpu": true,
-      "showGpu": true,
+      "showGpu": false,
       "showMemory": true,
       "showNetwork": true,
       "showStorage": true
@@ -343,8 +365,8 @@
   "enabled": true,
   "general": {
     "apps": {
-      "audio": ["pavucontrol"],
-      "explorer": ["nautilus"],
+      "audio": ["pwvucontrol"],
+      "explorer": ["nautilus", "--new-window"],
       "playback": ["mpv"],
       "terminal": ["foot"]
     },
@@ -374,10 +396,14 @@
     },
     "idle": {
       "inhibitWhenAudio": true,
+      "inhibitWhenCharging": false,
       "lockBeforeSleep": true,
       "timeouts": [
         {
           "idleAction": "lock",
+          "inhibitWhenAudio": false,
+          "inhibitWhenCharging": false,
+          "respectInhibitors": true,
           "timeout": 180
         },
         {
@@ -543,9 +569,14 @@
   },
   "lock": {
     "enableFprint": true,
+    "enableHowdy": true,
+    "enabled": true,
     "hideNotifs": false,
     "maxFprintTries": 3,
-    "recolourLogo": true
+    "maxHowdyTries": 3,
+    "recolourLogo": true,
+    "triggerHowdyOnWake": true,
+    "useWallpaper": false
   },
   "nexus": {
     "networkRescanInterval": 15000,
@@ -557,7 +588,7 @@
     "defaultExpireTimeout": 5000,
     "expandThreshold": 20,
     "expire": true,
-    "fullscreen": "on",
+    "fullscreen": "On",
     "fullscreenExpireTimeout": 2000,
     "groupPreviewNum": 3,
     "openExpanded": false
@@ -577,10 +608,10 @@
     "wallpaperDir": "~/Pictures/Wallpapers"
   },
   "services": {
-    "audioIncrement": 0.05,
-    "brightnessIncrement": 0.05,
+    "audioIncrement": 0.1,
+    "brightnessIncrement": 0.1,
     "defaultPlayer": "Spotify",
-    "gpuType": "",
+    "gpuType": "Auto",
     "lyricsBackend": "LRCLIB",
     "maxVolume": 1,
     "playerAliases": [
@@ -620,6 +651,9 @@
     "showOnHover": false
   },
   "utilities": {
+    "cards": {
+      "recorder": true
+    },
     "enabled": true,
     "maxToasts": 4,
     "quickToggles": [
@@ -657,7 +691,7 @@
       "audioOutputChanged": true,
       "capsLockChanged": true,
       "chargingChanged": true,
-      "configLoaded": true,
+      "configLoaded": false,
       "dndChanged": true,
       "fullscreen": "off",
       "gameModeChanged": true,
@@ -672,11 +706,12 @@
       "provider": [
         {
           "displayName": "Wireguard (Your VPN)",
-          "enabled": false,
+          "id": "vpn-mtgb29ht-2bqcv",
           "interface": "your-connection-name",
           "name": "wireguard"
         }
-      ]
+      ],
+      "selectedProvider": "vpn-mtgb29ht-2bqcv"
     }
   }
 }

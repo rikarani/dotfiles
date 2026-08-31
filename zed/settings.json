@@ -38,12 +38,6 @@
     "dock": "right",
     "favorite_models": [
       {
-        "provider": "zed.dev",
-        "model": "claude-sonnet-4-6",
-        "enable_thinking": true,
-        "effort": "max",
-      },
-      {
         "provider": "google",
         "model": "gemini-3.5-flash",
         "enable_thinking": true,
@@ -71,16 +65,22 @@
         "model": "gemini-2.5-flash",
         "enable_thinking": true,
       },
+      {
+        "provider": "zed.dev",
+        "model": "claude-sonnet-5",
+        "enable_thinking": true,
+        "effort": "medium",
+      },
     ],
     "default_model": {
-      "effort": "max",
+      "effort": "medium",
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
+      "model": "claude-sonnet-5",
       "enable_thinking": true,
     },
     "commit_message_model": {
-      "provider": "google",
-      "model": "gemini-3.5-flash",
+      "provider": "copilot_chat",
+      "model": "",
     },
   },
   // Individual Languages
@@ -99,6 +99,9 @@
       "format_on_save": "on",
       "tab_size": 2,
       "hard_tabs": false,
+    },
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "!phptools", "!phpantom", "..."],
     },
     "Prisma": {
       "format_on_save": "on",
